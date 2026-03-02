@@ -7,7 +7,7 @@
 
 ## Objective
 
-Run a comprehensive morning briefing for Mohamed Shaaban (mshaaban@obsidiansecurity.com), Sr. Regional Solutions Consultant – META at Obsidian Security. Pull data from Gmail, Google Calendar, Slack, and Jira, then compile everything into a structured briefing with action items, a new contacts CSV, and conditional follow-up drafts.
+Run a comprehensive morning briefing for Mohamed Shaaban (mshaaban@obsidiansecurity.com), Sr. Regional Solutions Consultant – META at Obsidian Security. Pull data from Gmail, Google Calendar, Slack, and Salesforce, then compile everything into a structured briefing with action items, a new contacts CSV, and POV follow-up status.
 
 ---
 
@@ -22,8 +22,6 @@ Search Gmail for all emails received in the last 24 hours using the query `after
 - 🔵 **FOLLOW-UP** — emails Mohamed has sent that are awaiting a reply
 
 **Key rules:**
-- For emails related to the **SAHARA reseller/partner opportunity**, note that **Sayed Shamshuddin (sshamshuddin@obsidiansecurity.com) should respond**, not Mohamed. Flag these as Sayed's responsibility.
-- For any HR or payroll disputes (e.g., medical insurance deductions, phone/internet allowances with Rippling or HR), check whether a reply has been received. If no reply exists to Mohamed's last sent message on the thread, **create a Gmail draft** (do NOT send) for Mohamed to review and send as a follow-up. The draft should be professional, referencing prior correspondence.
 - Exclude automated digests (Gong daily, Notion newsletters, Zoom join notifications) from the ACTION REQUIRED category — place them under FYI.
 
 ---
@@ -64,11 +62,11 @@ Omit personal focus blocks (Prayer Time, Lunch Time) from any conflict warnings 
 
 Open the Obsidian Security Slack workspace (workspace ID: T01D4P8A0FY, URL: https://app.slack.com/client/T01D4P8A0FY) using the browser. Check the following channels for notable messages from the past 24 hours:
 
+- **#sales-engineering-private** → Surface any SE updates, deal support requests, or technical blockers.
+- **#announcements** → Summarize any company-wide announcements.
 - **#product-updates** → Summarize any new product/feature announcements. Draft a LinkedIn post based on the most notable update (professional tone, 2–3 sentences, suitable for Mohamed to post).
+- **#sales-competitive-intel** → Highlight any new competitive intelligence relevant to META deals.
 - **#social** → If a LinkedIn post has been shared or drafted by the team, reference it.
-- **#sales** → Surface any key deal updates, customer wins, or blockers.
-- **#team-technical-field-organization** → Surface any technical enablement updates or field team announcements.
-- **#high-risk-alerts-customers-and-prospects** → Highlight any high-risk alerts related to Mohamed's accounts or the META region.
 - **#boom** → Surface any wins or announcements.
 
 If Slack is not accessible, note each channel as "unavailable" rather than skipping them.
@@ -87,15 +85,42 @@ Include tasks from emails, calendar prep needs (e.g., meetings needing preparati
 
 ---
 
-### 6. 🎯 Jira Issues
+### 6. 🔬 POV Daily Follow-Up
 
-Search Jira (cloud ID: `0977b327-0fc4-4447-ba92-50319c0e8e00`) for any open issues assigned to `currentUser()` where `statusCategory != Done`, ordered by `updated DESC`. If there are open issues, list them with status and priority. If none, note "No open Jira issues."
+Check the status of all active POVs (Proof of Value engagements). For each POV, evaluate two signals and flag if either is stale (no update in 7+ days):
+
+#### Step 1 — Salesforce POV Status
+Navigate to each active POV opportunity in Salesforce using the browser. Check the **Last Modified Date** and any recent activity or notes on the opportunity record.
+
+**Current active POVs:**
+- **Mashreq Bank** — SF Opportunity: https://obsidiansecurity.lightning.force.com/lightning/r/Opportunity/006UT00000S0gf3YAB/view
+
+If the Salesforce opportunity record has not been updated in **7 or more days**, flag it as: 🔴 **SF STALE — update needed**.
+
+#### Step 2 — Slack POV Channel Status
+Navigate to the POV's dedicated Slack channel (format: `#account-pov-internal`) and check the date of the most recent message.
+
+**Current POV Slack channels:**
+- Mashreq Bank → **#mashreqbank-pov-internal**
+
+If the channel has had no messages in **7 or more days**, flag it as: 🔴 **SLACK STALE — update needed**.
+
+#### Step 3 — POV Update (if stale)
+If either signal is stale, draft a POV status update for Mohamed to post in the Slack channel. The update **must follow the exact cumulative format already used in that channel** — read the existing messages to understand the format, then append the new update in an identical style. Do not invent a new format; mirror what is already there precisely.
+
+#### Output format for this section:
+```
+🔬 POV: Mashreq Bank
+  SF Last Update: [date] — [✅ Current / 🔴 STALE]
+  Slack Last Update: [date] — [✅ Current / 🔴 STALE]
+  [If stale] → Draft update ready for #mashreqbank-pov-internal (see below)
+```
 
 ---
 
 ## Output Format
 
-Present the briefing inline in the chat using clear markdown sections with the headers above. Save the new contacts CSV to the outputs folder and provide a download link. Any Gmail drafts created should be noted with the subject line and recipient so Mohamed can review them in Gmail Drafts.
+Present the briefing inline in the chat using clear markdown sections with the headers above. Save the new contacts CSV to the outputs folder and provide a download link.
 
 Do NOT include an Obsidian Security threat alerts section.
 
